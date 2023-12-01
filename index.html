@@ -127,7 +127,7 @@
     <section class="section intro-section">
         <div class="intro-container" style="text-align: center;">
             <div class="header">
-                <h3 class="papername">GauHuman: Articulated Gaussian Splatting for Real-Time 3D Human Rendering</h3>
+                <h3 class="papername">GauHuman: Articulated Gaussian Splatting from Monocular Human Videos</h3>
             </div>
             <ul class="list-unstyled name-list" style="font-size:16pt;">
                 <li><a href="https://skhu101.github.io" target="_blank">Shoukang Hu</a></li>
@@ -136,7 +136,7 @@
             <ul class="list-unstyled name-list" style="font-size:16pt;">
                 <li>S-Lab, Nanyang Technological University </li>
             </ul>
-            <div style="font-size:15pt;"><strong>TL;DR:</strong> GauHuman learns a 3D human model with Gaussian Splatting for both <strong>fast training</strong> (1~2 minutes) and <strong>real-time rendering</strong> (up to 189 FPS).</div>
+            <div style="font-size:15pt;"><strong>TL;DR:</strong> GauHuman learns articulated Gaussian Splatting from monocular videos with both <strong>fast training</strong> (1~2 minutes) and <strong>real-time rendering</strong> (up to 189 FPS).</div>
         </div>
 
         <div class="img-comp-container">
@@ -212,6 +212,17 @@
                 <tbody>
 
                     <tr>
+                        <td width="33%">
+                            Model (Training, Rendering)
+                        </td>
+                        <td width="33%">
+                            Model (Training, Rendering)
+                        </td>
+                        <td width="33.05%">
+                            Model (Training, Rendering)
+                        </td>
+
+                    <tr>
                     <td>
                         <div class="img-comp-container">
                             <div class="img-comp-img">
@@ -241,14 +252,54 @@
                         </td>
                     <tr>
                         <td width="33%">
-                            DVA
+                            DVA (1.5h, 16.5FPS)
                         </td>
                         <td width="33%">
-                            InstantAvatar
+                            InstantAvatar (3min, 4.15FPS)
                         </td>
                         <td width="33.05%">
-                            <strong>GauHuman</strong> (Ours)
+                            <strong>GauHuman</strong> (Ours, 1min, 189FPS)
                         </td>
+    
+
+                        <tr>
+                        <td>
+                            <div class="img-comp-container">
+                                <div class="img-comp-img">
+                                    <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                                        <source src="./GauHuman - Project Page_files/GauHuman_vis/my_392/DVA.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            </td> 
+                        <td>
+                            <div class="img-comp-container">
+                                <div class="img-comp-img">
+                                    <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                                        <source src="./GauHuman - Project Page_files/GauHuman_vis/my_392/instantavatar.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            </td> 
+                        <td>
+                            <div class="img-comp-container">
+                                <div class="img-comp-img">
+                                    <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                                        <source src="./GauHuman - Project Page_files/GauHuman_vis/my_392/GauHuman.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            </td>
+                        <tr>
+                            <td width="33%">
+                                DVA (1.5h, 16.5FPS)
+                            </td>
+                            <td width="33%">
+                                InstantAvatar (3min, 4.15FPS)
+                            </td>
+                            <td width="33.05%">
+                                <strong>GauHuman</strong> (Ours, 1min, 189FPS)
+                            </td>
 
 
                         <tr>
@@ -281,15 +332,54 @@
                                 </td>
                             <tr>
                                 <td width="33%">
-                                    DVA
+                                    DVA (1.5h, 10.5FPS)
                                 </td>
                                 <td width="33%">
-                                    InstantAvatar
+                                    InstantAvatar (6min, 2.54FPS)
                                 </td>
                                 <td width="33.05%">
-                                    <strong>GauHuman</strong> (Ours)
+                                    <strong>GauHuman</strong> (Ours, 2min, 154FPS)
                                 </td>
 
+
+                                <tr>
+                                    <td>
+                                        <div class="img-comp-container">
+                                            <div class="img-comp-img">
+                                                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                                                    <source src="./GauHuman - Project Page_files/GauHuman_vis/marc_images35000_36200/DVA.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                        </td> 
+                                    <td>
+                                        <div class="img-comp-container">
+                                            <div class="img-comp-img">
+                                                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                                                    <source src="./GauHuman - Project Page_files/GauHuman_vis/marc_images35000_36200/instantavatar.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                        </td> 
+                                    <td>
+                                        <div class="img-comp-container">
+                                            <div class="img-comp-img">
+                                                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                                                    <source src="./GauHuman - Project Page_files/GauHuman_vis/marc_images35000_36200/GauHuman.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                        </td>
+                                    <tr>
+                                        <td width="33%">
+                                            DVA (1.5h, 10.5FPS)
+                                        </td>
+                                        <td width="33%">
+                                            InstantAvatar (6min, 2.54FPS)
+                                        </td>
+                                        <td width="33.05%">
+                                            <strong>GauHuman</strong> (Ours, 2min, 154FPS)
+                                        </td>
 
 
                             <tr>
@@ -322,13 +412,13 @@
                                     </td>
                             <tr>
                                 <td width="33%">
-                                    AS
+                                    AS (10h, 0.14FPS)
                                 </td>
                                 <td width="33%">
-                                    InstantAvatar
+                                    InstantAvatar (20min, 20.48FPS)
                                 </td>
                                 <td width="33.05%">
-                                    <strong>GauHuman</strong> (Ours)
+                                    <strong>GauHuman</strong> (Ours, 4min, 152FPS)
                                 </td>
 
 
@@ -353,7 +443,7 @@
             Demo Video
         </div>
         <div style="text-align: center; margin-top: 20px;">
-            <iframe width="889" height="500" src="https://www.youtube.com/embed/32lF7reWWsc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            <iframe width="889" height="500" src="https://www.youtube.com/embed/kKeK3GUrLi0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
         </div>
     </section>
 
