@@ -41,6 +41,8 @@ We recommend using anaconda to manage the python environments.
     pip install -r requirement.txt
 ```
 
+Tips: We implement the [alpha mask loss version](https://github.com/ashawkey/diff-gaussian-rasterization) based on the official [diff-gaussian-rasterization](https://github.com/graphdeco-inria/diff-gaussian-rasterization/tree/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d).
+
 ## Set up Dataset
 <!-- --- -->
 
@@ -104,4 +106,4 @@ Distributed under the S-Lab License. See `LICENSE` for more information.
 
 ## :raised_hands: Acknowledgements
 
-This project is built on source codes shared by [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting), [HumanNeRF] and [Animatable NeRF](https://github.com/zju3dv/animatable_nerf).
+This project is built on source codes shared by [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting), [HumanNeRF](https://github.com/chungyiweng/humannerf) and [Animatable NeRF](https://github.com/zju3dv/animatable_nerf).
