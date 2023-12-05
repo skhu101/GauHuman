@@ -73,7 +73,7 @@ bash run_zju_mocap_refine.sh
 bash run_monocap.sh
 ```
 
-## :inference: Evaluation
+## :running_woman: Evaluation
 <!-- --- -->
 
 ### Evaluation command on ZJU_MoCap_refine dataset
