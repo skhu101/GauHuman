@@ -12,8 +12,8 @@
 
 GauHuman learns articulated Gaussian Splatting from monocular videos with both <strong>fast training</strong> (1~2 minutes) and <strong>real-time rendering</strong> (up to 189 FPS).
 
-<div style="width: 60%; text-align: center; margin:auto;">
-    <img style="width:100%" src="assets_img/training_speed.gif">
+<div style="width: 80%; text-align: center; margin:auto;">
+    <img style="width:100%" src="assets_img/training_speed.gif">  
     <em>GauHuman learns articulated Gaussian Splatting from monocular videos with both <strong>fast training</strong> (1~2 minutes) and <strong>real-time rendering</strong> (up to 189 FPS).</em>
 </div>
 
