@@ -10,8 +10,6 @@
     S-Lab, Nanyang Technological University
 </div>
 
-GauHuman learns articulated Gaussian Splatting from monocular videos with both <strong>fast training</strong> (1~2 minutes) and <strong>real-time rendering</strong> (up to 189 FPS).
-
 <div style="width: 70%; text-align: center; margin:auto;">
     <img style="width:100%" src="assets_img/training_speed.gif"><br>
     <em>GauHuman learns articulated Gaussian Splatting from monocular videos with both <strong>fast training</strong> (1~2 minutes) and <strong>real-time rendering</strong> (up to 189 FPS).</em>
