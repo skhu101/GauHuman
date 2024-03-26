@@ -9,6 +9,9 @@
 <div>
     S-Lab, Nanyang Technological University
 </div>
+<div>
+    CVPR 2024
+</div>
 
 <div style="width: 70%; text-align: center; margin:auto;">
     <img style="width:100%" src="assets_img/training_speed.gif"><br>
