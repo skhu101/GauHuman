@@ -49,7 +49,7 @@ Please follow instructions of [Instant-NVR](https://github.com/zju3dv/instant-nv
 
 ## Download SMPL Models
 
-Register and download SMPL models [here](https://smpl.is.tue.mpg.de/). Put the downloaded models in the folder smpl_models. Only the neutral one is needed. The folder structure should look like
+Register and download SMPL models [here](https://smplify.is.tue.mpg.de/download.php). Put the downloaded models in the folder smpl_models. Only the neutral one is needed. The folder structure should look like
 
 ```
 ./
