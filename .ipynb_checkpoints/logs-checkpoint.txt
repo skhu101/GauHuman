@@ -1,0 +1,790 @@
+(base) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ conda activate gauhuman
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ ls
+1200_human.mp4  assets_img  eval_monocap.sh            full_eval.py       Gauusian_1200.mp4  head_vertices.ipynb  metrics.py  output_video2.mp4  render.py                scene      smplx             train.py                         utils
+arguments       convert.py  eval_zju_mocap_refine1.sh  Gaussian_3000.mp4  gt_human.mp4       LICENSE.md           nets        README.md          requirement.txt          smpl       submodules        train_zju_mocap_refine-Copy1.sh
+assets          data        eval_zju_mocap_refine.sh   gaussian_renderer  head_selector.py   lpipsPyTorch         output      render-Copy1.py    run_zju_mocap_refine.sh  smpl-meta  train_monocap.sh  train_zju_mocap_refine.sh
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_sh_my_377 [07/08 04:18:13]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:18:14]
+Reading Training Transforms [07/08 04:18:14]
+Traceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 45, in training
+    scene = Scene(dataset, gaussians)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/__init__.py", line 52, in __init__
+    scene_info = sceneLoadTypeCallbacks["ZJU_MoCap_refine"](args.source_path, args.white_background, args.exp_name, args.eval)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/dataset_readers.py", line 732, in readZJUMoCapRefineInfo
+    train_cam_infos = readCamerasZJUMoCapRefine(path, train_view, white_background, split='train')
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/dataset_readers.py", line 715, in readCamerasZJUMoCapRefine
+    cam_infos.append(CameraInfo(uid=idx, pose_id=pose_index, R=R, T=T, K=K, FovY=FovY, FovX=FovX, image=image,
+TypeError: __new__() got an unexpected keyword argument 'face_world_vertex'
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_sh_my_377 [07/08 04:20:16]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:20:17]
+Reading Training Transforms [07/08 04:20:17]
+Reading Test Transforms [07/08 04:20:22]
+Traceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 45, in training
+    scene = Scene(dataset, gaussians)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/__init__.py", line 52, in __init__
+    scene_info = sceneLoadTypeCallbacks["ZJU_MoCap_refine"](args.source_path, args.white_background, args.exp_name, args.eval)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/dataset_readers.py", line 745, in readZJUMoCapRefineInfo
+    face_xyz = big_pose_world_vertex[indices]
+NameError: name 'big_pose_world_vertex' is not defined
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_sh_my_377 [07/08 04:21:10]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:21:11]
+Reading Training Transforms [07/08 04:21:11]
+Reading Test Transforms [07/08 04:21:16]
+Traceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 45, in training
+    scene = Scene(dataset, gaussians)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/__init__.py", line 52, in __init__
+    scene_info = sceneLoadTypeCallbacks["ZJU_MoCap_refine"](args.source_path, args.white_background, args.exp_name, args.eval)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/dataset_readers.py", line 748, in readZJUMoCapRefineInfo
+    xyz_face = train_cam_infos[0].face_world_vertex
+AttributeError: 'CameraInfo' object has no attribute 'face_world_vertex'
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_sh_my_377 [07/08 04:23:49]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:23:49]
+Reading Training Transforms [07/08 04:23:49]
+Reading Test Transforms [07/08 04:23:55]
+Traceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 45, in training
+    scene = Scene(dataset, gaussians)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/__init__.py", line 52, in __init__
+    scene_info = sceneLoadTypeCallbacks["ZJU_MoCap_refine"](args.source_path, args.white_background, args.exp_name, args.eval)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/dataset_readers.py", line 746, in readZJUMoCapRefineInfo
+    xyz2 = np.append(face_xyz,xyz,axis=0)
+NameError: name 'face_xyz' is not defined
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_sh_my_377 [07/08 04:24:45]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:24:45]
+Reading Training Transforms [07/08 04:24:45]
+Reading Test Transforms [07/08 04:24:51]
+Summary of points in cloud (6890, 3) (11895, 3) (5, 3) [07/08 04:25:04]
+Generating random point cloud (11895)... [07/08 04:25:04]
+Traceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 45, in training
+    scene = Scene(dataset, gaussians)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/__init__.py", line 52, in __init__
+    scene_info = sceneLoadTypeCallbacks["ZJU_MoCap_refine"](args.source_path, args.white_background, args.exp_name, args.eval)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/dataset_readers.py", line 760, in readZJUMoCapRefineInfo
+    storePly(ply_path, xyz, SH2RGB(shs) * 255)
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/dataset_readers.py", line 143, in storePly
+    attributes = np.concatenate((xyz, normals, rgb), axis=1)
+  File "<__array_function__ internals>", line 180, in concatenate
+ValueError: all the input array dimensions for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 6890 and the array at index 2 has size 11895
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_sh_my_377 [07/08 04:27:02]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:27:02]
+Reading Training Transforms [07/08 04:27:02]
+Reading Test Transforms [07/08 04:27:08]
+Summary of points in cloud (6890, 3) (11895, 3) (5, 3) [07/08 04:27:22]
+Generating random point cloud (11895)... [07/08 04:27:22]
+Loading Training Cameras [07/08 04:27:22]
+Loading Test Cameras [07/08 04:27:22]
+Number of points at initialisation :  11895 [07/08 04:27:24]
+Training progress:  42%|█████████████████████████████████████████████████▌                                                                     | 500/1200 [00:36<00:49, 14.15it/s, #pts=11895, Ll1 Loss=0.033, mask Loss=0.01, ssim=0.89, lpips=0.11][kl clone]:  68 [07/08 04:28:00]
+[kl split]:  1137 [07/08 04:28:00]
+[kl merge]:  211 [07/08 04:28:00]
+total points num:  12990 prune num:  1398 [07/08 04:28:00]
+Training progress:  50%|███████████████████████████████████████████████████████████▌                                                           | 600/1200 [00:43<00:41, 14.36it/s, #pts=11592, Ll1 Loss=0.023, mask Loss=0.01, ssim=0.92, lpips=0.09][kl clone]:  224 [07/08 04:28:07]
+[kl split]:  1200 [07/08 04:28:07]
+[kl merge]:  94 [07/08 04:28:07]
+total points num:  12954 prune num:  408 [07/08 04:28:07]
+Training progress:  58%|█████████████████████████████████████████████████████████████████████▍                                                 | 700/1200 [00:50<00:35, 14.03it/s, #pts=12546, Ll1 Loss=0.025, mask Loss=0.01, ssim=0.91, lpips=0.09][kl clone]:  514 [07/08 04:28:15]
+[kl split]:  1735 [07/08 04:28:15]
+[kl merge]:  68 [07/08 04:28:15]
+total points num:  14750 prune num:  326 [07/08 04:28:15]
+Training progress:  67%|███████████████████████████████████████████████████████████████████████████████▎                                       | 800/1200 [00:58<00:28, 14.01it/s, #pts=14424, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06][kl clone]:  1149 [07/08 04:28:22]
+[kl split]:  2062 [07/08 04:28:22]
+[kl merge]:  67 [07/08 04:28:22]
+total points num:  17593 prune num:  241 [07/08 04:28:22]
+Training progress:  75%|█████████████████████████████████████████████████████████████████████████████████████████▎                             | 900/1200 [01:05<00:22, 13.27it/s, #pts=17352, Ll1 Loss=0.021, mask Loss=0.01, ssim=0.92, lpips=0.07][kl clone]:  2330 [07/08 04:28:30]
+[kl split]:  2020 [07/08 04:28:30]
+[kl merge]:  80 [07/08 04:28:30]
+total points num:  21651 prune num:  365 [07/08 04:28:30]
+Training progress:  99%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ | 1190/1200 [01:30<00:00, 11.97it/s, #pts=21286, Ll1 Loss=0.015, mask Loss=0.01, ssim=0.94, lpips=0.04][Elapsed time]:  80.51118588447571 [07/08 04:28:55]
+Training progress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1200/1200 [01:31<00:00, 13.18it/s, #pts=21286, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06]
+
+[ITER 1200] Evaluating test #374: L1 0.06835938270457766 PSNR 12.782578261778315 SSIM 0.8909664037712117 LPIPS 0.11584826707242325 [07/08 04:29:31]
+
+[ITER 1200] Evaluating train #100: L1 0.0038315153867006305 PSNR 28.85997253417969 SSIM 0.983286721110344 LPIPS 0.013631208166480065 [07/08 04:29:40]
+
+[ITER 1200] Saving Gaussians [07/08 04:29:41]
+
+[ITER 1200] Saving Checkpoint [07/08 04:29:41]
+
+Training complete. [07/08 04:29:41]
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash eval_zju_mocap_refine1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Looking for config file in output/zju_mocap_refine/latest_sh_my_377/cfg_args
+Config file found: output/zju_mocap_refine/latest_sh_my_377/cfg_args
+Rendering output/zju_mocap_refine/latest_sh_my_377
+Loading trained model at iteration 1200 [07/08 04:29:55]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:29:55]
+Reading Training Transforms [07/08 04:29:55]
+Reading Test Transforms [07/08 04:30:01]
+Loading Training Cameras [07/08 04:30:14]
+Loading Test Cameras [07/08 04:30:15]
+Rendering progress:   0%|                                                                                                                 | 0/100 [00:00<?, ?it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Rendering progress:   7%|███████▎                                                                                                 | 7/100 [00:00<00:01, 67.46it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:16]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Rendering progress:  21%|█████████████████████▋                                                                                 | 21/100 [00:00<00:00, 107.10it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Rendering progress:  35%|████████████████████████████████████                                                                   | 35/100 [00:00<00:00, 119.25it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Rendering progress:  49%|██████████████████████████████████████████████████▍                                                    | 49/100 [00:00<00:00, 125.41it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Rendering progress:  62%|███████████████████████████████████████████████████████████████▊                                       | 62/100 [00:00<00:00, 126.77it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Rendering progress:  75%|█████████████████████████████████████████████████████████████████████████████▎                         | 75/100 [00:00<00:00, 127.41it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Rendering progress:  88%|██████████████████████████████████████████████████████████████████████████████████████████▋            | 88/100 [00:00<00:00, 128.10it/s]Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Cam: tensor([-2.2526, -0.7064, -1.8596], device='cuda:0') [07/08 04:30:17]
+Rendering progress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 122.98it/s]
+Elapsed time:  0.3331594467163086  FPS:  300.1565796366322 [07/08 04:30:17]
+
+[ITER 1200] Evaluating train #100: PSNR 28.859976253509522 SSIM 0.9832867360115052 LPIPS 0.013631149157881738 [07/08 04:30:27]
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_nosh_my_377 [07/08 04:34:18]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:34:18]
+Reading Training Transforms [07/08 04:34:18]
+Reading Test Transforms [07/08 04:34:24]
+Generating random point cloud (6890)... [07/08 04:34:37]
+Summary of points in cloud (6890, 3) (11895, 3) (5, 3) [07/08 04:34:37]
+Loading Training Cameras [07/08 04:34:37]
+Loading Test Cameras [07/08 04:34:38]
+Number of points at initialisation :  6890 [07/08 04:34:39]
+Training progress:  42%|███████████████▍                     | 500/1200 [00:32<00:44, 15.64it/s, #pts=6890, Ll1 Loss=0.033, mask Loss=0.01, ssim=0.89, lpips=0.11][kl clone]:  65 [07/08 04:35:11]
+[kl split]:  1139 [07/08 04:35:11]
+[kl merge]:  231 [07/08 04:35:11]
+total points num:  7967 prune num:  973 [07/08 04:35:11]
+Training progress:  50%|██████████████████▌                  | 600/1200 [00:38<00:37, 15.82it/s, #pts=6994, Ll1 Loss=0.023, mask Loss=0.01, ssim=0.92, lpips=0.09][kl clone]:  197 [07/08 04:35:18]
+[kl split]:  1197 [07/08 04:35:18]
+[kl merge]:  94 [07/08 04:35:18]
+total points num:  8326 prune num:  276 [07/08 04:35:18]
+Training progress:  58%|█████████████████████▌               | 700/1200 [00:45<00:32, 15.22it/s, #pts=8050, Ll1 Loss=0.026, mask Loss=0.01, ssim=0.91, lpips=0.09][kl clone]:  467 [07/08 04:35:24]
+[kl split]:  1720 [07/08 04:35:24]
+[kl merge]:  66 [07/08 04:35:24]
+total points num:  10199 prune num:  158 [07/08 04:35:24]
+Training progress:  67%|████████████████████████▋            | 800/1200 [00:52<00:27, 14.70it/s, #pts=1e+4, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.07][kl clone]:  1075 [07/08 04:35:31]
+[kl split]:  2080 [07/08 04:35:31]
+[kl merge]:  64 [07/08 04:35:31]
+total points num:  13165 prune num:  118 [07/08 04:35:31]
+Training progress:  75%|███████████████████████████         | 900/1200 [00:59<00:20, 14.42it/s, #pts=13047, Ll1 Loss=0.021, mask Loss=0.01, ssim=0.92, lpips=0.07][kl clone]:  2227 [07/08 04:35:38]
+[kl split]:  2041 [07/08 04:35:38]
+[kl merge]:  76 [07/08 04:35:38]
+total points num:  17267 prune num:  102 [07/08 04:35:38]
+Training progress:  99%|██████████████████████████████████▋| 1190/1200 [01:21<00:00, 13.18it/s, #pts=17165, Ll1 Loss=0.015, mask Loss=0.01, ssim=0.94, lpips=0.05][Elapsed time]:  76.4531135559082 [07/08 04:36:01]
+Training progress: 100%|███████████████████████████████████| 1200/1200 [01:22<00:00, 14.61it/s, #pts=17165, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06]
+
+[ITER 1200] Evaluating test #374: L1 0.06834649114824712 PSNR 12.783207707226595 SSIM 0.8909603194756941 LPIPS 0.11574327490506643 [07/08 04:36:36]
+
+[ITER 1200] Evaluating train #100: L1 0.0038139792834408584 PSNR 28.87555295944214 SSIM 0.9832969772815705 LPIPS 0.013813061229884625 [07/08 04:36:45]
+
+[ITER 1200] Saving Gaussians [07/08 04:36:46]
+
+[ITER 1200] Saving Checkpoint [07/08 04:36:46]
+
+Training complete. [07/08 04:36:46]
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash eval_zju_mocap_refine1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Looking for config file in output/zju_mocap_refine/latest_nosh_my_377/cfg_args
+Config file found: output/zju_mocap_refine/latest_nosh_my_377/cfg_args
+Rendering output/zju_mocap_refine/latest_nosh_my_377
+Loading trained model at iteration 1200 [07/08 04:36:52]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:36:52]
+Reading Training Transforms [07/08 04:36:52]
+Reading Test Transforms [07/08 04:36:59]
+Loading Training Cameras [07/08 04:37:12]
+Loading Test Cameras [07/08 04:37:13]
+Rendering progress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 159.25it/s]
+Elapsed time:  0.2790954113006592  FPS:  358.3004089317459 [07/08 04:37:15]
+
+[ITER 1200] Evaluating train #100: PSNR 28.875552291870118 SSIM 0.9832969093322754 LPIPS 0.013813052624464035 [07/08 04:37:24]
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ 
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_nosh_my_377 [07/08 04:45:22]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 04:45:22]
+Reading Training Transforms [07/08 04:45:22]
+Reading Test Transforms [07/08 04:45:28]
+Loading Training Cameras [07/08 04:45:41]
+Loading Test Cameras [07/08 04:45:42]
+Number of points at initialisation :  6890 [07/08 04:45:43]
+Training progress:   7%|██▋                                  | 500/7000 [00:32<06:55, 15.63it/s, #pts=6890, Ll1 Loss=0.033, mask Loss=0.01, ssim=0.89, lpips=0.11][kl clone]:  70 [07/08 04:46:15]
+[kl split]:  1135 [07/08 04:46:15]
+[kl merge]:  197 [07/08 04:46:15]
+total points num:  7974 prune num:  954 [07/08 04:46:15]
+Training progress:   9%|███▏                                 | 600/7000 [00:38<06:44, 15.83it/s, #pts=7020, Ll1 Loss=0.022, mask Loss=0.01, ssim=0.92, lpips=0.09][kl clone]:  199 [07/08 04:46:22]
+[kl split]:  1198 [07/08 04:46:22]
+[kl merge]:  84 [07/08 04:46:22]
+total points num:  8369 prune num:  343 [07/08 04:46:22]
+Training progress:  10%|███▋                                 | 700/7000 [00:45<06:50, 15.35it/s, #pts=8026, Ll1 Loss=0.026, mask Loss=0.01, ssim=0.91, lpips=0.09][kl clone]:  508 [07/08 04:46:28]
+[kl split]:  1694 [07/08 04:46:28]
+[kl merge]:  68 [07/08 04:46:28]
+total points num:  10196 prune num:  111 [07/08 04:46:28]
+Training progress:  11%|████                                | 800/7000 [00:52<07:01, 14.71it/s, #pts=10085, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06][kl clone]:  1179 [07/08 04:46:35]
+[kl split]:  2094 [07/08 04:46:35]
+[kl merge]:  74 [07/08 04:46:35]
+total points num:  13316 prune num:  128 [07/08 04:46:35]
+Training progress:  13%|████▋                               | 900/7000 [00:59<07:03, 14.41it/s, #pts=13188, Ll1 Loss=0.021, mask Loss=0.01, ssim=0.92, lpips=0.07][kl clone]:  2305 [07/08 04:46:42]
+[kl split]:  2027 [07/08 04:46:42]
+[kl merge]:  81 [07/08 04:46:42]
+total points num:  17475 prune num:  130 [07/08 04:46:42]
+Training progress:  17%|█████▉                             | 1190/7000 [01:21<07:22, 13.13it/s, #pts=17345, Ll1 Loss=0.015, mask Loss=0.01, ssim=0.94, lpips=0.05][Elapsed time]:  76.33677887916565 [07/08 04:47:05]
+Training progress:  17%|██████                             | 1200/7000 [01:40<07:21, 13.15it/s, #pts=17345, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06]
+[ITER 1200] Evaluating test #374: L1 0.06834865227979134 PSNR 12.783082367902132 SSIM 0.8909939846253012 LPIPS 0.11578583150584111 [07/08 04:47:40]
+
+[ITER 1200] Evaluating train #100: L1 0.0038317666482180356 PSNR 28.84993371963501 SSIM 0.9832373696565628 LPIPS 0.013690208187326788 [07/08 04:47:49]
+
+[ITER 1200] Saving Gaussians [07/08 04:47:50]
+
+[ITER 1200] Saving Checkpoint [07/08 04:47:50]
+Training progress:  28%|█████████▉                         | 1990/7000 [03:06<06:20, 13.17it/s, #pts=17345, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04][Elapsed time]:  130.10552144050598 [07/08 04:48:50]
+Training progress:  29%|██████████                         | 2000/7000 [03:20<06:20, 13.12it/s, #pts=17345, Ll1 Loss=0.017, mask Loss=0.01, ssim=0.94, lpips=0.05]
+[ITER 2000] Evaluating test #374: L1 0.06834285964262996 PSNR 12.781653967770662 SSIM 0.8908414354617582 LPIPS 0.11585434174593438 [07/08 04:49:25]
+
+[ITER 2000] Evaluating train #100: L1 0.0034915566840209066 PSNR 29.42076892852783 SSIM 0.9849443078041077 LPIPS 0.012249914230778813 [07/08 04:49:34]
+
+[ITER 2000] Saving Gaussians [07/08 04:49:35]
+
+[ITER 2000] Saving Checkpoint [07/08 04:49:35]
+Training progress:  43%|██████████████▉                    | 2990/7000 [05:06<05:05, 13.12it/s, #pts=17345, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04][Elapsed time]:  197.3683569431305 [07/08 04:50:51]
+Training progress:  43%|███████████████                    | 3000/7000 [05:20<05:04, 13.14it/s, #pts=17345, Ll1 Loss=0.013, mask Loss=0.01, ssim=0.95, lpips=0.04]
+[ITER 3000] Evaluating test #374: L1 0.06831781063129239 PSNR 12.78163759466161 SSIM 0.8908224081929355 LPIPS 0.11598012196945952 [07/08 04:51:25]
+
+[ITER 3000] Evaluating train #100: L1 0.003290789753664285 PSNR 29.78628204345703 SSIM 0.9859506779909134 LPIPS 0.011606548726558686 [07/08 04:51:35]
+
+[ITER 3000] Saving Gaussians [07/08 04:51:35]
+
+[ITER 3000] Saving Checkpoint [07/08 04:51:35]
+Training progress: 100%|██████████████████████████████████▉| 6990/7000 [10:55<00:00, 13.05it/s, #pts=17345, Ll1 Loss=0.012, mask Loss=0.01, ssim=0.96, lpips=0.04][Elapsed time]:  466.96831917762756 [07/08 04:56:40]
+Training progress: 100%|███████████████████████████████████| 7000/7000 [10:56<00:00, 10.66it/s, #pts=17345, Ll1 Loss=0.012, mask Loss=0.01, ssim=0.96, lpips=0.04]
+
+[ITER 7000] Evaluating test #374: L1 0.06833480040039767 PSNR 12.777351137151054 SSIM 0.8907554200626312 LPIPS 0.1161255961294002 [07/08 04:57:14]
+
+[ITER 7000] Evaluating train #100: L1 0.0028488130937330425 PSNR 30.70044298171997 SSIM 0.9881760346889497 LPIPS 0.010092574935406447 [07/08 04:57:24]
+
+[ITER 7000] Saving Gaussians [07/08 04:57:24]
+
+[ITER 7000] Saving Checkpoint [07/08 04:57:24]
+
+Training complete. [07/08 04:57:24]
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_sh_my_377 [07/08 05:00:36]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 05:00:36]
+Reading Training Transforms [07/08 05:00:36]
+Reading Test Transforms [07/08 05:00:42]
+Loading Training Cameras [07/08 05:00:56]
+Loading Test Cameras [07/08 05:00:56]
+Number of points at initialisation :  11895 [07/08 05:00:58]
+Training progress:   7%|██▌                                 | 500/7000 [00:35<07:40, 14.13it/s, #pts=11895, Ll1 Loss=0.033, mask Loss=0.01, ssim=0.89, lpips=0.11][kl clone]:  67 [07/08 05:01:33]
+[kl split]:  1137 [07/08 05:01:33]
+[kl merge]:  213 [07/08 05:01:33]
+total points num:  12974 prune num:  1171 [07/08 05:01:33]
+Training progress:   9%|███                                 | 600/7000 [00:42<07:27, 14.30it/s, #pts=11803, Ll1 Loss=0.023, mask Loss=0.01, ssim=0.92, lpips=0.09][kl clone]:  212 [07/08 05:01:41]
+[kl split]:  1216 [07/08 05:01:41]
+[kl merge]:  97 [07/08 05:01:41]
+total points num:  13169 prune num:  328 [07/08 05:01:41]
+Training progress:  10%|███▌                                | 700/7000 [00:50<07:34, 13.85it/s, #pts=12841, Ll1 Loss=0.025, mask Loss=0.01, ssim=0.91, lpips=0.09][kl clone]:  518 [07/08 05:01:48]
+[kl split]:  1699 [07/08 05:01:48]
+[kl merge]:  86 [07/08 05:01:48]
+total points num:  15007 prune num:  188 [07/08 05:01:48]
+Training progress:  11%|████                                | 800/7000 [00:57<07:26, 13.87it/s, #pts=14819, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.07][kl clone]:  1150 [07/08 05:01:55]
+[kl split]:  2087 [07/08 05:01:55]
+[kl merge]:  76 [07/08 05:01:55]
+total points num:  18022 prune num:  274 [07/08 05:01:55]
+Training progress:  13%|████▋                               | 900/7000 [01:05<07:43, 13.15it/s, #pts=17748, Ll1 Loss=0.021, mask Loss=0.01, ssim=0.92, lpips=0.07][kl clone]:  2211 [07/08 05:02:03]
+[kl split]:  2078 [07/08 05:02:03]
+[kl merge]:  75 [07/08 05:02:03]
+total points num:  21998 prune num:  362 [07/08 05:02:03]
+Training progress:  17%|█████▉                             | 1190/7000 [01:29<08:08, 11.90it/s, #pts=21636, Ll1 Loss=0.015, mask Loss=0.01, ssim=0.94, lpips=0.04][Elapsed time]:  80.2110505104065 [07/08 05:02:28]
+Training progress:  17%|██████                             | 1200/7000 [01:50<08:06, 11.92it/s, #pts=21636, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06]
+[ITER 1200] Evaluating test #374: L1 0.06835122542445832 PSNR 12.783059265524308 SSIM 0.8909866398668543 LPIPS 0.11579326655775467 [07/08 05:03:04]
+
+[ITER 1200] Evaluating train #100: L1 0.0038365540537051855 PSNR 28.856872596740722 SSIM 0.9832134020328522 LPIPS 0.013652989659458398 [07/08 05:03:14]
+
+[ITER 1200] Saving Gaussians [07/08 05:03:15]
+
+[ITER 1200] Saving Checkpoint [07/08 05:03:15]
+Training progress:  28%|█████████▉                         | 1990/7000 [03:23<07:00, 11.90it/s, #pts=21636, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04][Elapsed time]:  137.31574082374573 [07/08 05:04:22]
+Training progress:  29%|██████████                         | 2000/7000 [03:40<07:01, 11.87it/s, #pts=21636, Ll1 Loss=0.017, mask Loss=0.01, ssim=0.94, lpips=0.05]
+[ITER 2000] Evaluating test #374: L1 0.06835485701474117 PSNR 12.78057171571701 SSIM 0.8908314658677514 LPIPS 0.1159006497140396 [07/08 05:04:58]
+
+[ITER 2000] Evaluating train #100: L1 0.003491376650054008 PSNR 29.431983947753906 SSIM 0.9849499982595444 LPIPS 0.012256686007604004 [07/08 05:05:08]
+
+[ITER 2000] Saving Gaussians [07/08 05:05:08]
+
+[ITER 2000] Saving Checkpoint [07/08 05:05:08]
+Training progress:  43%|██████████████▉                    | 2990/7000 [05:33<05:37, 11.88it/s, #pts=21636, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04][Elapsed time]:  208.78671431541443 [07/08 05:06:32]
+Training progress:  43%|███████████████                    | 3000/7000 [05:50<05:36, 11.89it/s, #pts=21636, Ll1 Loss=0.013, mask Loss=0.01, ssim=0.95, lpips=0.04]
+[ITER 3000] Evaluating test #374: L1 0.06832947615374696 PSNR 12.780400227735386 SSIM 0.8908131485954325 LPIPS 0.11599143198068766 [07/08 05:07:08]
+
+[ITER 3000] Evaluating train #100: L1 0.0032895476883277298 PSNR 29.80052070617676 SSIM 0.9859706234931946 LPIPS 0.011511615086346865 [07/08 05:07:18]
+
+[ITER 3000] Saving Gaussians [07/08 05:07:18]
+
+[ITER 3000] Saving Checkpoint [07/08 05:07:18]
+Training progress: 100%|██████████████████████████████████▉| 6990/7000 [11:56<00:00, 11.82it/s, #pts=21636, Ll1 Loss=0.012, mask Loss=0.01, ssim=0.96, lpips=0.04][Elapsed time]:  494.8166937828064 [07/08 05:12:55]
+Training progress: 100%|███████████████████████████████████| 7000/7000 [11:57<00:00,  9.76it/s, #pts=21636, Ll1 Loss=0.012, mask Loss=0.01, ssim=0.96, lpips=0.04]
+
+[ITER 7000] Evaluating test #374: L1 0.06833582148354321 PSNR 12.776497504290411 SSIM 0.890746444941842 LPIPS 0.11610242274196389 [07/08 05:13:31]
+
+[ITER 7000] Evaluating train #100: L1 0.002848926086444408 PSNR 30.716423568725588 SSIM 0.9881787830591202 LPIPS 0.010091397655196488 [07/08 05:13:41]
+
+[ITER 7000] Saving Gaussians [07/08 05:13:41]
+
+[ITER 7000] Saving Checkpoint [07/08 05:13:41]
+
+Training complete. [07/08 05:13:41]
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_ransh_my_377 [07/08 05:39:36]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 05:39:36]
+Reading Training Transforms [07/08 05:39:36]
+Reading Test Transforms [07/08 05:39:43]
+Generating random point cloud (6890)... [07/08 05:39:57]
+Summary of points in cloud (6890, 3) (11895, 3) (5, 3) [07/08 05:39:57]
+5890 [07/08 05:39:57]
+Generating random point cloud (5890)... [07/08 05:39:57]
+Loading Training Cameras [07/08 05:39:57]
+Loading Test Cameras [07/08 05:39:57]
+Number of points at initialisation :  5890 [07/08 05:39:59]
+Training progress:   2%|▊                                    | 150/7000 [00:09<07:01, 16.26it/s, #pts=5890, Ll1 Loss=0.081, mask Loss=0.02, ssim=0.80, lpips=0.17]^CTraceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 104, in training
+    render_pkg = render(viewpoint_cam, gaussians, pipe, background)
+  File "/home/shreyas/Documents/Disseration/GauHuman/gaussian_renderer/__init__.py", line 70, in render
+    _, means3D, _, transforms, translation = pc.coarse_deform_c2source(means3D[None], viewpoint_camera.smpl_param,
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/gaussian_model.py", line 671, in coarse_deform_c2source
+    rot_mats = batch_rodrigues(pose_.view(-1, 3)).view([batch_size, -1, 3, 3])
+  File "/home/shreyas/Documents/Disseration/GauHuman/scene/gaussian_model.py", line 859, in batch_rodrigues
+    cos = torch.unsqueeze(torch.cos(angle), dim=1)
+KeyboardInterrupt
+Training progress:   2%|▊                                    | 150/7000 [00:09<07:29, 15.24it/s, #pts=5890, Ll1 Loss=0.081, mask Loss=0.02, ssim=0.80, lpips=0.17]
+
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_ransh_my_377 [07/08 06:04:09]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 06:04:09]
+Reading Training Transforms [07/08 06:04:09]
+Reading Test Transforms [07/08 06:04:16]
+Loading Training Cameras [07/08 06:04:30]
+Loading Test Cameras [07/08 06:04:30]
+Number of points at initialisation :  5890 [07/08 06:04:31]
+Training progress:   7%|██▋                                  | 500/7000 [00:30<06:38, 16.31it/s, #pts=5890, Ll1 Loss=0.033, mask Loss=0.01, ssim=0.89, lpips=0.11][kl clone]:  59 [07/08 06:05:02]
+[kl split]:  1164 [07/08 06:05:02]
+[kl merge]:  220 [07/08 06:05:02]
+total points num:  7019 prune num:  847 [07/08 06:05:02]
+Training progress:   9%|███▏                                 | 600/7000 [00:37<06:28, 16.46it/s, #pts=6172, Ll1 Loss=0.023, mask Loss=0.01, ssim=0.92, lpips=0.09][kl clone]:  175 [07/08 06:05:09]
+[kl split]:  1177 [07/08 06:05:09]
+[kl merge]:  66 [07/08 06:05:09]
+total points num:  7487 prune num:  322 [07/08 06:05:09]
+Training progress:  10%|███▋                                 | 700/7000 [00:43<06:33, 16.02it/s, #pts=7165, Ll1 Loss=0.025, mask Loss=0.01, ssim=0.91, lpips=0.09][kl clone]:  434 [07/08 06:05:15]
+[kl split]:  1682 [07/08 06:05:15]
+[kl merge]:  48 [07/08 06:05:15]
+total points num:  9254 prune num:  133 [07/08 06:05:15]
+Training progress:  11%|████▏                                | 800/7000 [00:50<06:44, 15.31it/s, #pts=9121, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06][kl clone]:  1072 [07/08 06:05:22]
+[kl split]:  2103 [07/08 06:05:22]
+[kl merge]:  54 [07/08 06:05:22]
+total points num:  12268 prune num:  118 [07/08 06:05:22]
+Training progress:  13%|████▋                               | 900/7000 [00:57<07:02, 14.44it/s, #pts=12150, Ll1 Loss=0.021, mask Loss=0.01, ssim=0.92, lpips=0.07][kl clone]:  2229 [07/08 06:05:29]
+[kl split]:  2127 [07/08 06:05:29]
+[kl merge]:  75 [07/08 06:05:29]
+total points num:  16461 prune num:  118 [07/08 06:05:29]
+Training progress:  15%|█████▎                             | 1050/7000 [01:08<07:11, 13.80it/s, #pts=16343, Ll1 Loss=0.015, mask Loss=0.01, ssim=0.95, lpips=0.05]^CTraceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 124, in training
+    loss.backward()
+  File "/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Training progress:  15%|█████▎                             | 1050/7000 [01:08<06:29, 15.27it/s, #pts=16343, Ll1 Loss=0.015, mask Loss=0.01, ssim=0.95, lpips=0.05]
+
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_ransh_my_377 [07/08 06:07:22]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 06:07:22]
+Reading Training Transforms [07/08 06:07:22]
+Reading Test Transforms [07/08 06:07:28]
+Loading Training Cameras [07/08 06:07:42]
+Loading Test Cameras [07/08 06:07:42]
+Number of points at initialisation :  5890 [07/08 06:07:44]
+Training progress:   1%|▎                                     | 50/7000 [00:03<07:24, 15.63it/s, #pts=5890, Ll1 Loss=0.093, mask Loss=0.03, ssim=0.79, lpips=0.19]^CTraceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 151, in training
+    training_report(tb_writer, iteration, Ll1, loss, l1_loss, iter_start.elapsed_time(iter_end), testing_iterations, scene, render, (pipe, background))
+  File "train.py", line 214, in training_report
+    tb_writer.add_scalar('train_loss_patches/l1_loss', Ll1.item(), iteration)
+KeyboardInterrupt
+Training progress:   1%|▎                                     | 50/7000 [00:03<09:03, 12.79it/s, #pts=5890, Ll1 Loss=0.093, mask Loss=0.03, ssim=0.79, lpips=0.19]
+
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ conda deactivate 
+(base) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ conda activate gauhuman
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_ransh_my_377 [07/08 06:11:15]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 06:11:15]
+Reading Training Transforms [07/08 06:11:15]
+Reading Test Transforms [07/08 06:11:21]
+Loading Training Cameras [07/08 06:11:35]
+Loading Test Cameras [07/08 06:11:35]
+Number of points at initialisation :  5890 [07/08 06:11:37]
+Training progress:   1%|▍                                     | 90/7000 [00:05<07:18, 15.76it/s, #pts=5890, Ll1 Loss=0.092, mask Loss=0.03, ssim=0.79, lpips=0.19]^CTraceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 124, in training
+    loss.backward()
+  File "/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Training progress:   1%|▍                                     | 90/7000 [00:06<08:00, 14.39it/s, #pts=5890, Ll1 Loss=0.092, mask Loss=0.03, ssim=0.79, lpips=0.19]
+
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh 
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_ransh_my_377 [07/08 06:15:57]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 06:15:57]
+Reading Training Transforms [07/08 06:15:57]
+Reading Test Transforms [07/08 06:16:03]
+Loading Training Cameras [07/08 06:16:17]
+Loading Test Cameras [07/08 06:16:17]
+Number of points at initialisation :  5890 [07/08 06:16:18]
+Training progress:   3%|█▏                                   | 230/7000 [00:14<07:04, 15.94it/s, #pts=5890, Ll1 Loss=0.065, mask Loss=0.02, ssim=0.84, lpips=0.14]^CTraceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 124, in training
+    loss.backward()
+  File "/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Training progress:   3%|█▏                                   | 230/7000 [00:14<07:16, 15.52it/s, #pts=5890, Ll1 Loss=0.065, mask Loss=0.02, ssim=0.84, lpips=0.14]
+
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_ransh_my_377 [07/08 06:19:14]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 06:19:14]
+Reading Training Transforms [07/08 06:19:14]
+Reading Test Transforms [07/08 06:19:20]
+Loading Training Cameras [07/08 06:19:34]
+Loading Test Cameras [07/08 06:19:34]
+Number of points at initialisation :  5890 [07/08 06:19:35]
+Training progress:   7%|██▋                                  | 500/7000 [00:31<06:46, 15.98it/s, #pts=5890, Ll1 Loss=0.033, mask Loss=0.01, ssim=0.89, lpips=0.11][kl clone]:  59 [07/08 06:20:07]
+[kl split]:  1171 [07/08 06:20:07]
+[kl merge]:  207 [07/08 06:20:07]
+total points num:  7034 prune num:  840 [07/08 06:20:07]
+Training progress:   9%|███▏                                 | 600/7000 [00:37<06:37, 16.11it/s, #pts=6194, Ll1 Loss=0.023, mask Loss=0.01, ssim=0.92, lpips=0.09][kl clone]:  180 [07/08 06:20:13]
+[kl split]:  1159 [07/08 06:20:13]
+[kl merge]:  81 [07/08 06:20:13]
+total points num:  7487 prune num:  314 [07/08 06:20:13]
+Training progress:  10%|███▋                                 | 700/7000 [00:44<06:41, 15.71it/s, #pts=7173, Ll1 Loss=0.026, mask Loss=0.01, ssim=0.91, lpips=0.09][kl clone]:  453 [07/08 06:20:20]
+[kl split]:  1720 [07/08 06:20:20]
+[kl merge]:  60 [07/08 06:20:20]
+total points num:  9312 prune num:  129 [07/08 06:20:20]
+Training progress:  11%|████▏                                | 800/7000 [00:51<06:52, 15.02it/s, #pts=9183, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.07][kl clone]:  1075 [07/08 06:20:26]
+[kl split]:  2134 [07/08 06:20:27]
+[kl merge]:  63 [07/08 06:20:27]
+total points num:  12358 prune num:  115 [07/08 06:20:27]
+Training progress:  13%|████▋                               | 900/7000 [00:58<07:09, 14.20it/s, #pts=12243, Ll1 Loss=0.021, mask Loss=0.01, ssim=0.92, lpips=0.07][kl clone]:  2200 [07/08 06:20:34]
+[kl split]:  2102 [07/08 06:20:34]
+[kl merge]:  84 [07/08 06:20:34]
+total points num:  16500 prune num:  124 [07/08 06:20:34]
+Training progress:  15%|█████▎                             | 1060/7000 [01:10<07:20, 13.48it/s, #pts=16376, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04]^CTraceback (most recent call last):
+  File "train.py", line 301, in <module>
+    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+  File "train.py", line 138, in training
+    ema_loss_for_log = 0.4 * loss.item() + 0.6 * ema_loss_for_log
+KeyboardInterrupt
+Training progress:  15%|█████▎                             | 1060/7000 [01:10<06:34, 15.04it/s, #pts=16376, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04]
+
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ bash train_zju_mocap_refine-Copy1.sh
+Setting up [LPIPS] perceptual loss: trunk [vgg], v[0.1], spatial [off]
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/shreyas/anaconda3/envs/gauhuman/lib/python3.8/site-packages/lpips/weights/v0.1/vgg.pth
+Optimizing 
+Output folder: ./output/zju_mocap_refine/latest_ransh_my_377 [07/08 06:21:24]
+Found annots.json file, assuming ZJU_MoCap_refine data set! [07/08 06:21:24]
+Reading Training Transforms [07/08 06:21:24]
+Reading Test Transforms [07/08 06:21:31]
+Summary of points in cloud (6890, 3) (11895, 3) (5, 3) [07/08 06:21:44]
+Ideal shape should 6890 6890 [07/08 06:21:44]
+2Generating random point cloud (6890)... [07/08 06:21:44]
+Loading Training Cameras [07/08 06:21:44]
+Loading Test Cameras [07/08 06:21:45]
+Number of points at initialisation :  6890 [07/08 06:21:46]
+Training progress:   7%|██▋                                  | 500/7000 [00:31<06:50, 15.85it/s, #pts=6890, Ll1 Loss=0.034, mask Loss=0.01, ssim=0.89, lpips=0.12][kl clone]:  41 [07/08 06:22:18]
+[kl split]:  1183 [07/08 06:22:18]
+[kl merge]:  101 [07/08 06:22:18]
+total points num:  8070 prune num:  672 [07/08 06:22:18]
+Training progress:   9%|███▏                                 | 600/7000 [00:38<06:42, 15.90it/s, #pts=7398, Ll1 Loss=0.023, mask Loss=0.01, ssim=0.92, lpips=0.09][kl clone]:  184 [07/08 06:22:24]
+[kl split]:  1142 [07/08 06:22:24]
+[kl merge]:  51 [07/08 06:22:24]
+total points num:  8695 prune num:  396 [07/08 06:22:25]
+Training progress:  10%|███▋                                 | 700/7000 [00:44<06:50, 15.33it/s, #pts=8299, Ll1 Loss=0.026, mask Loss=0.01, ssim=0.90, lpips=0.10][kl clone]:  465 [07/08 06:22:31]
+[kl split]:  1615 [07/08 06:22:31]
+[kl merge]:  27 [07/08 06:22:31]
+total points num:  10361 prune num:  134 [07/08 06:22:31]
+Training progress:  11%|████                                | 800/7000 [00:51<06:57, 14.84it/s, #pts=10227, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.07][kl clone]:  1051 [07/08 06:22:38]
+[kl split]:  2065 [07/08 06:22:38]
+[kl merge]:  40 [07/08 06:22:38]
+total points num:  13323 prune num:  87 [07/08 06:22:38]
+Training progress:  13%|████▋                               | 900/7000 [00:58<06:58, 14.59it/s, #pts=13236, Ll1 Loss=0.021, mask Loss=0.01, ssim=0.92, lpips=0.08][kl clone]:  2174 [07/08 06:22:45]
+[kl split]:  2091 [07/08 06:22:45]
+[kl merge]:  89 [07/08 06:22:45]
+total points num:  17470 prune num:  102 [07/08 06:22:45]
+Training progress:  17%|█████▉                             | 1190/7000 [01:20<07:16, 13.32it/s, #pts=17368, Ll1 Loss=0.015, mask Loss=0.01, ssim=0.94, lpips=0.05][Elapsed time]:  74.9598822593689 [07/08 06:23:08]
+Training progress:  17%|██████                             | 1200/7000 [01:40<07:14, 13.34it/s, #pts=17368, Ll1 Loss=0.019, mask Loss=0.01, ssim=0.93, lpips=0.06]
+[ITER 1200] Evaluating test #374: L1 0.06836181239568613 PSNR 12.782153127027705 SSIM 0.8909474308478003 LPIPS 0.11579752789142934 [07/08 06:23:42]
+
+[ITER 1200] Evaluating train #100: L1 0.0038344430294819177 PSNR 28.869385776519778 SSIM 0.9832235115766526 LPIPS 0.013906371463090181 [07/08 06:23:51]
+
+[ITER 1200] Saving Gaussians [07/08 06:23:51]
+
+[ITER 1200] Saving Checkpoint [07/08 06:23:51]
+Training progress:  28%|█████████▉                         | 1990/7000 [03:04<06:17, 13.27it/s, #pts=17368, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04][Elapsed time]:  127.929270029068 [07/08 06:24:51]
+Training progress:  29%|██████████                         | 2000/7000 [03:20<06:17, 13.24it/s, #pts=17368, Ll1 Loss=0.017, mask Loss=0.01, ssim=0.94, lpips=0.05]
+[ITER 2000] Evaluating test #374: L1 0.06834718685617103 PSNR 12.780558195981111 SSIM 0.890834047832591 LPIPS 0.11585204327170223 [07/08 06:25:25]
+
+[ITER 2000] Evaluating train #100: L1 0.0034982501645572485 PSNR 29.43476860046387 SSIM 0.9848791807889938 LPIPS 0.012488148603588343 [07/08 06:25:34]
+
+[ITER 2000] Saving Gaussians [07/08 06:25:35]
+
+[ITER 2000] Saving Checkpoint [07/08 06:25:35]
+Training progress:  43%|██████████████▉                    | 2990/7000 [05:02<05:02, 13.26it/s, #pts=17368, Ll1 Loss=0.014, mask Loss=0.01, ssim=0.95, lpips=0.04][Elapsed time]:  194.1794776916504 [07/08 06:26:50]
+Training progress:  43%|███████████████                    | 3000/7000 [05:20<05:01, 13.28it/s, #pts=17368, Ll1 Loss=0.013, mask Loss=0.01, ssim=0.95, lpips=0.04]
+[ITER 3000] Evaluating test #374: L1 0.06832230596598934 PSNR 12.78118105240684 SSIM 0.8908082425275587 LPIPS 0.11596186669234604 [07/08 06:27:24]
+
+[ITER 3000] Evaluating train #100: L1 0.0033037911914289 PSNR 29.791681308746337 SSIM 0.9858418822288514 LPIPS 0.01186998506076634 [07/08 06:27:33]
+
+[ITER 3000] Saving Gaussians [07/08 06:27:33]
+
+[ITER 3000] Saving Checkpoint [07/08 06:27:34]
+Training progress: 100%|██████████████████████████████████▉| 6990/7000 [10:47<00:00, 13.20it/s, #pts=17368, Ll1 Loss=0.012, mask Loss=0.01, ssim=0.96, lpips=0.04][Elapsed time]:  459.2260184288025 [07/08 06:32:34]
+Training progress: 100%|███████████████████████████████████| 7000/7000 [10:48<00:00, 10.80it/s, #pts=17368, Ll1 Loss=0.012, mask Loss=0.01, ssim=0.96, lpips=0.04]
+
+[ITER 7000] Evaluating test #374: L1 0.06833612298304065 PSNR 12.777707724647724 SSIM 0.8907249316493457 LPIPS 0.11610359303095442 [07/08 06:33:09]
+
+[ITER 7000] Evaluating train #100: L1 0.002868239404633641 PSNR 30.68830972671509 SSIM 0.9880465930700303 LPIPS 0.010367243574000895 [07/08 06:33:18]
+
+[ITER 7000] Saving Gaussians [07/08 06:33:18]
+
+[ITER 7000] Saving Checkpoint [07/08 06:33:18]
+
+Training complete. [07/08 06:33:18]
+(gauhuman) shreyas@shreyas-Z370M-D3H:~/Documents/Disseration/GauHuman$ 

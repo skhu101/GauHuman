@@ -45,9 +45,12 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
 
     for _, view in enumerate(tqdm(views, desc="Rendering progress")):
         gt = view.original_image[0:3, :, :].cuda()
+        # view.camera_center = torch.tensor([ 2.5,  1.4, -1.5]).cuda()
         bound_mask = view.bound_mask
         transforms, translation = smpl_rot[name][view.pose_id]['transforms'], smpl_rot[name][view.pose_id]['translation']
-
+        
+        # print("Cam:",view.camera_center)
+        
         # Start timer
         start_time = time.time() 
         render_output = render(view, gaussians, pipeline, background, transforms=transforms, translation=translation)
@@ -62,7 +65,8 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
 
         rgbs.append(rendering)
         rgbs_gt.append(gt)
-
+        
+        
     # Calculate elapsed time
     print("Elapsed time: ", elapsed_time, " FPS: ", len(views)/elapsed_time) 
 

@@ -4,8 +4,8 @@ import math
 
 class BodyPoseRefiner(nn.Module):
     def __init__(self,
-                 total_bones=24,
-                 embedding_size=69,
+                 total_bones=55,
+                 embedding_size=162,
                  mlp_width=256,
                  mlp_depth=4,
                  **_):

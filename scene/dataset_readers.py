@@ -557,7 +557,7 @@ def readCamerasZJUMoCapRefine(path, output_view, white_background, image_scaling
         pose_start = 0
         pose_interval = 30
         pose_num = 17
-
+        
     ann_file = os.path.join(path, 'annots.npy')
     annots = np.load(ann_file, allow_pickle=True).item()
     cams = annots['cams']
@@ -599,6 +599,7 @@ def readCamerasZJUMoCapRefine(path, output_view, white_background, image_scaling
     big_pose_max_xyz += 0.05
     big_pose_world_bound = np.stack([big_pose_min_xyz, big_pose_max_xyz], axis=0)
 
+    
     idx = 0
     for pose_index in range(pose_num):
         for view_index in range(len(output_view)):
@@ -648,9 +649,10 @@ def readCamerasZJUMoCapRefine(path, output_view, white_background, image_scaling
             if ratio != 1.:
                 H, W = int(image.shape[0] * ratio), int(image.shape[1] * ratio)
                 image = cv2.resize(image, (W, H), interpolation=cv2.INTER_AREA)
-                msk = cv2.resize(msk, (W, H), interpolation=cv2.INTER_NEAREST)
+                msk = cv2.resize(msk, (W, H), interpolation=cv2.INTER_AREA)
                 K[:2] = K[:2] * ratio
 
+            
             image = Image.fromarray(np.array(image*255.0, dtype=np.byte), "RGB")
 
             focalX = K[0,0]
@@ -703,7 +705,7 @@ def readZJUMoCapRefineInfo(path, white_background, output_path, eval):
     print("Reading Training Transforms")
     train_cam_infos = readCamerasZJUMoCapRefine(path, train_view, white_background, split='train')
     print("Reading Test Transforms")
-    test_cam_infos = readCamerasZJUMoCapRefine(path, test_view, white_background, split='test', novel_view_vis=False)
+    test_cam_infos = readCamerasZJUMoCapRefine(path, test_view, white_background, split='test', novel_view_vis=True)
     
     if not eval:
         train_cam_infos.extend(test_cam_infos)
@@ -716,13 +718,147 @@ def readZJUMoCapRefineInfo(path, white_background, output_path, eval):
     ply_path = os.path.join('output', output_path, "points3d.ply")
     if not os.path.exists(ply_path):
         # Since this data set has no colmap data, we start with random points
+    ##change
         num_pts = 6890 #100_000
-        print(f"Generating random point cloud ({num_pts})...")
+        # print(f"Generating random point cloud ({num_pts})...")
         
         # We create random points inside the bounds of the synthetic Blender scenes
         xyz = train_cam_infos[0].big_pose_world_vertex
+        
 
+        ####################################################################################################################################################################
+        #For face
+            ####code to add bounding box to face
+    
+        face= {
+                'nose': 332,
+                'reye': 6260,
+                'leye': 2800,
+                'rear':	4071,
+                'lear':	583,
+        }
+        hand = {
+                'rthumb':		6191,
+                'rindex':		5782,
+                'rmiddle':		5905,
+                'rring':		6016,
+                'rpinky':		6133,
+                'lthumb':		2746,
+                'lindex':		2319,
+                'lmiddle':		2445,
+                'lring':		2556,
+                'lpinky':		2673,
+        }
+    
+        # Extract the indices from the face dictionary face
+        f_indices = np.array(list(face.values()))
+        h_indices = np.array(list(hand.values()))
+
+        # Use the indices to directly get the corresponding rows from big_pose_xyz face
+        xyz_face = train_cam_infos[0].big_pose_world_vertex[f_indices]
+        xyz_l_hand = train_cam_infos[0].big_pose_world_vertex[h_indices[0:5]]
+        xyz_r_hand = train_cam_infos[0].big_pose_world_vertex[h_indices[5:10]]
+        
+        ###############################**********************########################################## change 2 
+        
+        # obtain the original bounds for dense point sampling on the face + 0.1
+        xyz_face_min_xyz = np.min(xyz_face, axis=0)
+        xyz_face_max_xyz = np.max(xyz_face, axis=0)
+        xyz_face_min_xyz -= 0.1
+        xyz_face_max_xyz += 0.1
+        # xyz_face_world_bound = np.stack([xyz_face_min_xyz, xyz_face_max_xyz], axis=0)
+        
+        # obtain the original bounds for dense point sampling on the hand 
+        xyz_l_hand_min_xyz = np.min(xyz_l_hand, axis=0)
+        xyz_l_hand_max_xyz = np.max(xyz_l_hand, axis=0)
+        xyz_l_hand_min_xyz -= 0.05
+        xyz_l_hand_max_xyz += 0.05
+        
+        # obtain the original bounds for dense point sampling on the hand 
+        xyz_r_hand_min_xyz = np.min(xyz_r_hand, axis=0)
+        xyz_r_hand_max_xyz = np.max(xyz_r_hand, axis=0)
+        xyz_r_hand_min_xyz -= 0.05
+        xyz_r_hand_max_xyz += 0.05
+        
+        # xyz2 = np.append(xyz_face,xyz,axis=0)
+        # xyz2 = np.append(xyz_hand,xyz2,axis=0)
+
+        # Define the number of points along each axis (resolution of the grid)
+        num_points_face = 25  # Face
+        num_points_hand = 5  # hands
+        
+        # Create a grid of points within the bounding box for face
+        x = np.linspace(xyz_face_min_xyz[0], xyz_face_max_xyz[0], num_points_face)
+        y = np.linspace(xyz_face_min_xyz[1], xyz_face_max_xyz[1], num_points_face)
+        z = np.linspace(xyz_face_min_xyz[2], xyz_face_max_xyz[2], num_points_face)
+
+        # Generate all combinations of x, y, z
+        X, Y, Z = np.meshgrid(x, y, z)
+        # Reshape the grid to get a flat list of 3D points
+        xyz_face_world_bound = np.vstack([X.ravel(), Y.ravel(), Z.ravel()]).T
+
+        # Create a grid of points within the bounding box for l_hand
+        x = np.linspace(xyz_l_hand_min_xyz[0], xyz_l_hand_max_xyz[0], num_points_hand)
+        y = np.linspace(xyz_l_hand_min_xyz[1], xyz_l_hand_max_xyz[1], num_points_hand)
+        z = np.linspace(xyz_l_hand_min_xyz[2], xyz_l_hand_max_xyz[2], num_points_hand)
+
+        # Generate all combinations of x, y, z
+        X, Y, Z = np.meshgrid(x, y, z)
+        # Reshape the grid to get a flat list of 3D points
+        xyz_l_hand_world_bound = np.vstack([X.ravel(), Y.ravel(), Z.ravel()]).T
+
+        # Create a grid of points within the bounding box for r_hand
+        x = np.linspace(xyz_r_hand_min_xyz[0], xyz_r_hand_max_xyz[0], num_points_hand)
+        y = np.linspace(xyz_r_hand_min_xyz[1], xyz_r_hand_max_xyz[1], num_points_hand)
+        z = np.linspace(xyz_r_hand_min_xyz[2], xyz_r_hand_max_xyz[2], num_points_hand)  
+
+        # Generate all combinations of x, y, z
+        X, Y, Z = np.meshgrid(x, y, z)
+        # Reshape the grid to get a flat list of 3D points
+        xyz_r_hand_world_bound = np.vstack([X.ravel(), Y.ravel(), Z.ravel()]).T      
+
+
+        xyz2 = np.append(xyz_face_world_bound,xyz,axis=0)
+        xyz2 = np.append(xyz_l_hand_world_bound,xyz2,axis=0)
+        xyz2 = np.append(xyz_r_hand_world_bound,xyz2,axis=0)
+        ###############################**********************########################################## change 2 
+    
+        # xyz2 = np.append(xyz_face_world_bound,xyz2,axis=0)
+
+        # for x in range(xyz_face.shape[0]):
+        #     xyz2 = np.append(xyz_face,xyz2,axis=0)
+        # for x in range(9):
+        #     xyz2 = np.append(xyz_hand,xyz2,axis=0)
+            
+        print("Summary of points in cloud",xyz.shape ,xyz2.shape,xyz_face_world_bound.shape,xyz_l_hand_world_bound.shape,xyz_r_hand_world_bound.shape)
+        # num_pts2 = xyz2.shape[0]
+        # num_pts = num_pts2
+        # xyz = xyz2
+
+
+        #Randomly remove to compare
+        # Generate 1000 unique random indices to remove
+        num_to_remove = xyz2.shape[0] - xyz.shape[0]
+        indices_to_remove = np.random.choice(len(xyz2), size=num_to_remove, replace=False)
+        
+        # Create a mask that is True for the indices to keep
+        mask = np.ones(len(xyz2), dtype=bool)
+        mask[indices_to_remove] = False
+
+        # Use the mask to filter out the arrays
+        xyz3 = xyz2[mask]
+
+        # Print the length of the filtered list to verify
+        print("Ideal shape should 6890",xyz3.shape[0])  # Should be 6890 
+        num_pts3=xyz3.shape[0]
+        
+        # reassign to original names
+        num_pts = num_pts3 
+        xyz = xyz3
+        print(f"Generating random point cloud ({num_pts})...")
+        ####################################################################################################################################################################
         shs = np.random.random((num_pts, 3)) / 255.0
+    
         pcd = BasicPointCloud(points=xyz, colors=SH2RGB(shs), normals=np.zeros((num_pts, 3)))
 
         storePly(ply_path, xyz, SH2RGB(shs) * 255)

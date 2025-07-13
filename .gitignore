@@ -8,3 +8,7 @@ tensorboard_3d
 screenshots
 assets/
 *.png
+data/**
+*.mp4
+**/.ipynb_checkpoints/**
+.ipynb_checkpoints
